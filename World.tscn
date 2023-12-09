@@ -1,0 +1,125 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkmvppile2woy"]
+
+[ext_resource type="Script" path="res://Scripts/action.gd" id="1_8mn7o"]
+[ext_resource type="Theme" uid="uid://t212mpvqi07p" path="res://default_button.tres" id="2_ltx5o"]
+[ext_resource type="Script" path="res://Scripts/Actions/Jab.gd" id="3_uer4t"]
+[ext_resource type="Script" path="res://Scripts/Actions/Straight.gd" id="4_5jy75"]
+[ext_resource type="Script" path="res://Scripts/Actions/Kick.gd" id="5_i1pyi"]
+[ext_resource type="Script" path="res://Scripts/Actions/Heavy.gd" id="6_faj6w"]
+[ext_resource type="Script" path="res://Scripts/Actions/Block.gd" id="7_jeis3"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(3, 5)
+
+[node name="UI" type="Node2D" parent="."]
+script = ExtResource("1_8mn7o")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+offset_left = 22.0
+offset_top = 435.0
+offset_right = 92.0
+offset_bottom = 606.0
+
+[node name="Jab" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ltx5o")
+text = "Jab"
+script = ExtResource("3_uer4t")
+
+[node name="Straight" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ltx5o")
+text = "Straight
+"
+script = ExtResource("4_5jy75")
+
+[node name="Kick" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ltx5o")
+text = "Kick
+"
+script = ExtResource("5_i1pyi")
+
+[node name="Heavy" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ltx5o")
+text = "Heavy
+"
+script = ExtResource("6_faj6w")
+
+[node name="Block" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ltx5o")
+text = "Block
+"
+script = ExtResource("7_jeis3")
+
+[node name="Bars" type="Node2D" parent="UI"]
+
+[node name="HP" type="ColorRect" parent="UI/Bars"]
+offset_left = 32.0
+offset_top = 27.0
+offset_right = 72.0
+offset_bottom = 67.0
+scale = Vector2(11.5135, 0.68)
+color = Color(1, 0, 0, 1)
+
+[node name="HP2" type="ColorRect" parent="UI/Bars"]
+offset_left = 636.0
+offset_top = 25.0
+offset_right = 676.0
+offset_bottom = 65.0
+scale = Vector2(11.5135, 0.68)
+color = Color(1, 0, 0, 1)
+
+[node name="Timeline" type="Node2D" parent="UI"]
+position = Vector2(67, 35)
+scale = Vector2(11.5135, 0.68)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Timeline"]
+offset_left = 34.2207
+offset_top = 104.412
+offset_right = 74.2207
+offset_bottom = 144.412
+scale = Vector2(0.104956, 1.29603)
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/Timeline/HBoxContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Timeline"]
+offset_left = 39.0846
+offset_top = 104.412
+offset_right = 79.0846
+offset_bottom = 144.412
+scale = Vector2(0.104956, 1.29603)
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/Timeline/HBoxContainer2"]
+layout_mode = 2
+text = "2"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/Timeline"]
+offset_left = 44.209
+offset_top = 104.412
+offset_right = 84.209
+offset_bottom = 144.412
+scale = Vector2(0.104956, 1.29603)
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/Timeline/HBoxContainer3"]
+layout_mode = 2
+text = "3"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="UI/Timeline"]
+offset_left = 48.5517
+offset_top = 104.412
+offset_right = 88.5517
+offset_bottom = 144.412
+scale = Vector2(0.104956, 1.29603)
+alignment = 1
+
+[node name="Label" type="Label" parent="UI/Timeline/HBoxContainer4"]
+layout_mode = 2
+text = "4"
