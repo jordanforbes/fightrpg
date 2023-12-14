@@ -15,6 +15,11 @@ run/main_scene="res://World.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Player="*res://Scripts/Player.gd"
+Main="*res://Main.gd"
+
 [rendering]
 
 renderer/rendering_method="mobile"

@@ -1,11 +1,11 @@
 extends Button
 
-const action:String = "Jab"
-const damage: int = 1
-const length = 1 
-const steps = {"ready":1, "hit":1, "reset": 1}
+const this_action: String = "Jab"
+const this_damage: int = 1
+const this_length = 1
+const this_steps = {"ready": 1, "hit": 1, "reset": 1}
 
-func _pressed()->void:
-	print(action,": ", damage, " damage, length: ",length)
-	print("Steps: ", steps)
-	
+@onready var jab = Attack.new(this_action, this_damage, this_length, this_steps, Player)
+
+func _pressed() -> void:
+	jab._pressed()
