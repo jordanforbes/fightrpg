@@ -3,8 +3,18 @@ extends Node2D
 const MAX_HP = 20
 var current_HP = 20
 
-# Signal emitted when the player is ready
-#signal player_ready
+signal player_ready
+signal update_hp
+
+func _ready():
+	pass
+	
+func take_damage(dmg):
+	current_HP -= dmg
+	emit_signal("update_hp", current_HP)
+	print('damage taken ', current_HP)
+
+
 
 func print_scene_tree(node: Node = get_tree().root, indent: String = "") -> void:
 	print(indent, node)
@@ -14,9 +24,4 @@ func print_scene_tree(node: Node = get_tree().root, indent: String = "") -> void
 # Called when the node enters the scene tree for the first time.
 func debug_player():
 	print('Player HP: ', current_HP, '/', MAX_HP)
-	#print_scene_tree()
-
-func _ready():
-	debug_player()
-	# Emit the signal to notify that the player is ready
-	emit_signal("player_ready")
+	print_scene_tree()

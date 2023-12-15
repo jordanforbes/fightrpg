@@ -16,8 +16,8 @@ func _ready()-> void:
 
 func _pressed()->void:
 	print(action)
-	player.current_HP -= damage
-	print(player.current_HP)
+	player.take_damage(damage)
+	#print(player.current_HP)
 	
 	
 func _init(action_name: String, atk_damage:int, atk_length:int, atk_steps:Dictionary, target:Player):

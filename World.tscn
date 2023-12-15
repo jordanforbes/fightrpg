@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dkmvppile2woy"]
 
-[ext_resource type="Script" path="res://Scripts/action.gd" id="1_8mn7o"]
 [ext_resource type="Script" path="res://Main.gd" id="1_kjw05"]
 [ext_resource type="Theme" uid="uid://t212mpvqi07p" path="res://default_button.tres" id="2_ltx5o"]
+[ext_resource type="Script" path="res://UI.gd" id="3_5vrdr"]
 [ext_resource type="Script" path="res://Scripts/Actions/Jab.gd" id="3_uer4t"]
 [ext_resource type="Script" path="res://Scripts/Actions/Straight.gd" id="4_5jy75"]
 [ext_resource type="Script" path="res://Scripts/Actions/Kick.gd" id="5_i1pyi"]
@@ -14,43 +14,49 @@
 position = Vector2(3, 5)
 script = ExtResource("1_kjw05")
 
-[node name="UI" type="Node2D" parent="."]
-script = ExtResource("1_8mn7o")
+[node name="Player" parent="." instance=ExtResource("8_ocv8r")]
+position = Vector2(150, 162)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_5vrdr")
+
+[node name="Actions" type="Node2D" parent="UI"]
+position = Vector2(3, 5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Actions"]
 offset_left = 22.0
 offset_top = 435.0
 offset_right = 92.0
 offset_bottom = 606.0
 
-[node name="Jab" type="Button" parent="UI/VBoxContainer"]
+[node name="Jab" type="Button" parent="UI/Actions/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_ltx5o")
 text = "Jab"
 script = ExtResource("3_uer4t")
 
-[node name="Straight" type="Button" parent="UI/VBoxContainer"]
+[node name="Straight" type="Button" parent="UI/Actions/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_ltx5o")
 text = "Straight
 "
 script = ExtResource("4_5jy75")
 
-[node name="Kick" type="Button" parent="UI/VBoxContainer"]
+[node name="Kick" type="Button" parent="UI/Actions/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_ltx5o")
 text = "Kick
 "
 script = ExtResource("5_i1pyi")
 
-[node name="Heavy" type="Button" parent="UI/VBoxContainer"]
+[node name="Heavy" type="Button" parent="UI/Actions/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_ltx5o")
 text = "Heavy
 "
 script = ExtResource("6_faj6w")
 
-[node name="Block" type="Button" parent="UI/VBoxContainer"]
+[node name="Block" type="Button" parent="UI/Actions/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_ltx5o")
 text = "Block
@@ -58,6 +64,7 @@ text = "Block
 script = ExtResource("7_jeis3")
 
 [node name="Bars" type="Node2D" parent="UI"]
+position = Vector2(3, 5)
 
 [node name="HP" type="ColorRect" parent="UI/Bars"]
 offset_left = 32.0
@@ -75,8 +82,37 @@ offset_bottom = 65.0
 scale = Vector2(11.5135, 0.68)
 color = Color(1, 0, 0, 1)
 
+[node name="player_life" type="HBoxContainer" parent="UI/Bars"]
+offset_left = 198.0
+offset_top = 21.0
+offset_right = 238.0
+offset_bottom = 61.0
+
+[node name="player_hp" type="Label" parent="UI/Bars/player_life"]
+layout_mode = 2
+text = "HP:
+"
+
+[node name="hp1" type="Label" parent="UI/Bars/player_life"]
+layout_mode = 2
+text = "20"
+
+[node name="enemy_life" type="HBoxContainer" parent="UI/Bars"]
+offset_left = 815.0
+offset_top = 17.0
+offset_right = 855.0
+offset_bottom = 57.0
+
+[node name="enemy_hp" type="Label" parent="UI/Bars/enemy_life"]
+layout_mode = 2
+text = "HP:
+"
+
+[node name="hp2" type="Label" parent="UI/Bars/enemy_life"]
+layout_mode = 2
+
 [node name="Timeline" type="Node2D" parent="UI"]
-position = Vector2(67, 35)
+position = Vector2(70, 40)
 scale = Vector2(11.5135, 0.68)
 
 [node name="frame1" type="HBoxContainer" parent="UI/Timeline"]
@@ -127,5 +163,4 @@ alignment = 1
 layout_mode = 2
 text = "4"
 
-[node name="Player" parent="." instance=ExtResource("8_ocv8r")]
-position = Vector2(150, 162)
+[connection signal="jabpress" from="UI/Actions/VBoxContainer/Jab" to="UI" method="_on_jab_jabpress"]
