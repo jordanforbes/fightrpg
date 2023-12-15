@@ -164,3 +164,7 @@ layout_mode = 2
 text = "4"
 
 [connection signal="jabpress" from="UI/Actions/VBoxContainer/Jab" to="UI" method="_on_jab_jabpress"]
+[connection signal="straightpress" from="UI/Actions/VBoxContainer/Straight" to="UI" method="_on_straight_straightpress"]
+[connection signal="kickpress" from="UI/Actions/VBoxContainer/Kick" to="UI" method="_on_kick_kickpress"]
+[connection signal="heavypress" from="UI/Actions/VBoxContainer/Heavy" to="UI" method="_on_heavy_heavypress"]
+[connection signal="blockhit" from="UI/Actions/VBoxContainer/Block" to="UI" method="_on_block_blockhit"]

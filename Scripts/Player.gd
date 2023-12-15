@@ -25,3 +25,7 @@ func print_scene_tree(node: Node = get_tree().root, indent: String = "") -> void
 func debug_player():
 	print('Player HP: ', current_HP, '/', MAX_HP)
 	print_scene_tree()
+
+
+func _on_heavy_heavypress():
+	pass # Replace with function body.
