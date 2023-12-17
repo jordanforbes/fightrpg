@@ -14,17 +14,20 @@ func _ready():
 func add_to_timeline(atk, steps):
 	print('steps: ',steps," length: ", steps.size())
 	var found = false
+	#var time =
 	var i = 0
 	var max = 4
+	var steplength = steps.size()
+	
 	for slot in timeline: 
 		if found == false && i < max:
-			if i+ 1 + steps.size()<=4:
-				if slot == 'frame':
-					print(slot)
-					print(atk)
-					timeline[i] = atk 
-					found = true
-					print(i)
+			if i + steps.size()<=4 && slot =="frame":
+				for a in range(i, steplength+i):	
+					print('stepcheck: ',a)
+					timeline[a] = atk
+				#print("i: ",i," steps: ", steplength)
+				#timeline[i] = atk 
+				found = true
 			else:
 				print("not enough time")
 			i+=1
