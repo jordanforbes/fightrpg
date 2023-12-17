@@ -3,9 +3,9 @@ extends Button
 const this_action:String = "Block"
 const this_damage: int = 0
 const this_length = 1 
-const this_steps = {"ready":1, "hit":1, "reset": 1}
+const this_steps = {0:["prep","hit","reset"]}
 
-@onready var block = Attack.new(this_action, this_damage, this_length, this_steps, Player)
+@onready var block = Attack.new(this_action, this_damage, this_length, this_steps, Enemy)
 
 signal blockhit
 

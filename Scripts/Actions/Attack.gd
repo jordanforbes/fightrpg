@@ -6,7 +6,7 @@ var damage: int
 var length: int
 var steps: Dictionary
 var action: String
-var player: Player
+var player
 
 
 func _ready()-> void:
@@ -20,7 +20,7 @@ func _pressed()->void:
 	#print(player.current_HP)
 	
 	
-func _init(action_name: String, atk_damage:int, atk_length:int, atk_steps:Dictionary, target:Player):
+func _init(action_name: String, atk_damage:int, atk_length:int, atk_steps:Dictionary, target):
 	action = action_name 
 	damage = atk_damage
 	length = atk_length 
