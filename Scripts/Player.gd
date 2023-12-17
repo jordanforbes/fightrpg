@@ -6,8 +6,24 @@ var current_HP = 20
 signal player_ready
 signal update_hp
 
+var timeline = ['frame','frame','frame','frame']
+
 func _ready():
 	pass
+	
+func add_to_timeline(atk):
+	var found = false
+	print(timeline)
+	var i = 0
+	for slot in timeline: 
+		if found == false:
+			if slot == 'frame':
+				print(slot)
+				print(atk)
+				timeline[i] = atk 
+				found = true
+			i+=1
+
 	
 func take_damage(dmg):
 	current_HP -= dmg
