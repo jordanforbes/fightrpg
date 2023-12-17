@@ -11,18 +11,24 @@ var timeline = ['frame','frame','frame','frame']
 func _ready():
 	pass
 	
-func add_to_timeline(atk):
+func add_to_timeline(atk, steps):
+	print('steps: ',steps," length: ", steps.size())
 	var found = false
-	print(timeline)
 	var i = 0
+	var max = 4
 	for slot in timeline: 
-		if found == false:
-			if slot == 'frame':
-				print(slot)
-				print(atk)
-				timeline[i] = atk 
-				found = true
+		if found == false && i < max:
+			if i+ 1 + steps.size()<=4:
+				if slot == 'frame':
+					print(slot)
+					print(atk)
+					timeline[i] = atk 
+					found = true
+					print(i)
+			else:
+				print("not enough time")
 			i+=1
+	print(timeline)
 
 	
 func take_damage(dmg):

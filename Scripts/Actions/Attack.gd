@@ -17,7 +17,7 @@ func _ready()-> void:
 func _pressed()->void:
 	print(action)
 	player.take_damage(damage)
-	Player.add_to_timeline(action)
+	Player.add_to_timeline(action,steps)
 	#print(player.current_HP)
 	
 	
